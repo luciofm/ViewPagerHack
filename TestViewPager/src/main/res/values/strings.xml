@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Test ViewPager</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_section4">Section 4</string>
+    <string name="title_section5">Section 5</string>
+    <string name="title_section6">Section 6</string>
+    <string name="title_section7">Section 7</string>
+    <string name="title_section8">Section 8</string>
+    <string name="title_section9">Section 9</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
