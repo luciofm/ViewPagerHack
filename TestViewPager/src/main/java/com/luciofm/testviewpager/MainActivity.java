@@ -27,9 +27,9 @@ public class MainActivity extends Activity {
     SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
-     * The {@link ViewPagerOriginal} that will host the section contents.
+     * The {@link ViewPager} that will host the section contents.
      */
-    ViewPagerOriginal mViewPager;
+    ViewPager mViewPager;
     int lastPos = -1;
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPagerOriginal) findViewById(R.id.pager);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
