@@ -1,0 +1,36 @@
+--- TestViewPager/src/main/java/com/luciofm/testviewpager/ViewPager.java	Mon Dec  9 14:22:29 2013
++++ TestViewPager/src/main/java/com/luciofm/testviewpager/ViewPager.java	Mon Dec  9 14:24:02 2013
+@@ -111,6 +111,7 @@ public class ViewPager extends V
+      * If the app changes this when we don't expect it, we'll throw a big obnoxious exception.
+      */
+     private int mExpectedAdapterCount;
++    private int initialScrollX = -1;
+ 
+     static class ItemInfo {
+         Object object;
+@@ -1964,6 +1965,7 @@ public class ViewPager extends V
+                 // Remember where the motion event started
+                 mLastMotionX = mInitialMotionX = ev.getX();
+                 mLastMotionY = mInitialMotionY = ev.getY();
++                initialScrollX = getScrollX();
+                 mActivePointerId = MotionEventCompat.getPointerId(ev, 0);
+                 break;
+             }
+@@ -2099,6 +2101,16 @@ public class ViewPager extends 
+             }
+             scrollX = rightBound;
+         }
++
++        float maxWidth = firstItem.widthFactor * width;
++        if (oldScrollX > scrollX) {
++            if (initialScrollX - scrollX > maxWidth)
++                scrollX = oldScrollX;
++        } else {
++            if (scrollX - initialScrollX > maxWidth)
++                scrollX = oldScrollX;
++        }
++
+         // Don't lose the rounded component
+         mLastMotionX += scrollX - (int) scrollX;
+         scrollTo((int) scrollX, getScrollY());
+
